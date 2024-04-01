@@ -4,6 +4,7 @@ import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -63,7 +64,11 @@ public class MinecraftServer implements Runnable, ICommandListener {
         InetAddress inetaddress = null;
 
         if (s.length() > 0) {
-            inetaddress = InetAddress.getByName(s);
+            try {
+                inetaddress = InetAddress.getByName(s);
+            } catch (UnknownHostException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         int i = this.propertyManager.getInt("server-port", 25565);

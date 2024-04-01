@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet14BlockDig extends Packet {
 
@@ -13,7 +14,7 @@ public class Packet14BlockDig extends Packet {
 
     public Packet14BlockDig() {}
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException {
         this.e = datainputstream.read();
         this.a = datainputstream.readInt();
         this.b = datainputstream.read();
@@ -21,7 +22,7 @@ public class Packet14BlockDig extends Packet {
         this.face = datainputstream.read();
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException {
         dataoutputstream.write(this.e);
         dataoutputstream.writeInt(this.a);
         dataoutputstream.write(this.b);

@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInput;
 import java.io.DataOutput;
+import java.io.IOException;
 
 public class NBTTagByteArray extends NBTBase {
 
@@ -13,12 +14,12 @@ public class NBTTagByteArray extends NBTBase {
         this.a = abyte;
     }
 
-    void a(DataOutput dataoutput) {
+    void a(DataOutput dataoutput) throws IOException {
         dataoutput.writeInt(this.a.length);
         dataoutput.write(this.a);
     }
 
-    void a(DataInput datainput) {
+    void a(DataInput datainput) throws IOException {
         int i = datainput.readInt();
 
         this.a = new byte[i];

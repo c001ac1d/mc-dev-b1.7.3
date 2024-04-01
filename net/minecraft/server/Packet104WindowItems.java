@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 public class Packet104WindowItems extends Packet {
@@ -22,7 +23,7 @@ public class Packet104WindowItems extends Packet {
         }
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException {
         this.a = datainputstream.readByte();
         short short1 = datainputstream.readShort();
 
@@ -40,7 +41,7 @@ public class Packet104WindowItems extends Packet {
         }
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException {
         dataoutputstream.writeByte(this.a);
         dataoutputstream.writeShort(this.b.length);
 

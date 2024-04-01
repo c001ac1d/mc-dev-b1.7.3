@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet21PickupSpawn extends Packet {
 
@@ -31,7 +32,7 @@ public class Packet21PickupSpawn extends Packet {
         this.g = (byte) ((int) (entityitem.motZ * 128.0D));
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException {
         this.a = datainputstream.readInt();
         this.h = datainputstream.readShort();
         this.i = datainputstream.readByte();
@@ -44,7 +45,7 @@ public class Packet21PickupSpawn extends Packet {
         this.g = datainputstream.readByte();
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException {
         dataoutputstream.writeInt(this.a);
         dataoutputstream.writeShort(this.h);
         dataoutputstream.writeByte(this.i);

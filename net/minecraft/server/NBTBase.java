@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInput;
 import java.io.DataOutput;
+import java.io.IOException;
 
 public abstract class NBTBase {
 
@@ -9,9 +10,9 @@ public abstract class NBTBase {
 
     public NBTBase() {}
 
-    abstract void a(DataOutput dataoutput);
+    abstract void a(DataOutput dataoutput) throws IOException;
 
-    abstract void a(DataInput datainput);
+    abstract void a(DataInput datainput) throws IOException;
 
     public abstract byte a();
 
@@ -24,7 +25,7 @@ public abstract class NBTBase {
         return this;
     }
 
-    public static NBTBase b(DataInput datainput) {
+    public static NBTBase b(DataInput datainput) throws IOException {
         byte b0 = datainput.readByte();
 
         if (b0 == 0) {
@@ -38,7 +39,7 @@ public abstract class NBTBase {
         }
     }
 
-    public static void a(NBTBase nbtbase, DataOutput dataoutput) {
+    public static void a(NBTBase nbtbase, DataOutput dataoutput) throws IOException {
         dataoutput.writeByte(nbtbase.a());
         if (nbtbase.a() != 0) {
             dataoutput.writeUTF(nbtbase.b());

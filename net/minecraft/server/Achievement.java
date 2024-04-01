@@ -23,13 +23,6 @@ public class Achievement extends Statistic {
         this.l = StatisticCollector.a("achievement." + s + ".desc");
         this.a = j;
         this.b = k;
-        if (j < AchievementList.a) {
-            a = j;
-        }
-
-        if (k < AchievementList.b) {
-            b = k;
-        }
 
         if (j > AchievementList.c) {
             AchievementList.c = j;

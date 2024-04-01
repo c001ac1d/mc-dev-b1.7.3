@@ -1,5 +1,6 @@
 package net.minecraft.server;
 
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class NetworkListenThread {
     private ArrayList h = new ArrayList();
     public MinecraftServer c;
 
-    public NetworkListenThread(MinecraftServer minecraftserver, InetAddress inetaddress, int i) {
+    public NetworkListenThread(MinecraftServer minecraftserver, InetAddress inetaddress, int i) throws IOException {
         this.c = minecraftserver;
         this.d = new ServerSocket(i, 0, inetaddress);
         this.d.setPerformancePreferences(0, 2, 1);

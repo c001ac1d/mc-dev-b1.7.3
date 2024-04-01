@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet61 extends Packet {
 
@@ -21,7 +22,7 @@ public class Packet61 extends Packet {
         this.b = i1;
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException {
         this.a = datainputstream.readInt();
         this.c = datainputstream.readInt();
         this.d = datainputstream.readByte();
@@ -29,7 +30,7 @@ public class Packet61 extends Packet {
         this.b = datainputstream.readInt();
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException {
         dataoutputstream.writeInt(this.a);
         dataoutputstream.writeInt(this.c);
         dataoutputstream.writeByte(this.d);

@@ -81,6 +81,8 @@ public abstract class Packet {
         } catch (EOFException eofexception) {
             System.out.println("Reached end of stream");
             return null;
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
         }
 
         PacketCounter packetcounter = (PacketCounter) e.get(Integer.valueOf(i));
@@ -99,12 +101,12 @@ public abstract class Packet {
         return packet;
     }
 
-    public static void a(Packet packet, DataOutputStream dataoutputstream) {
+    public static void a(Packet packet, DataOutputStream dataoutputstream) throws IOException {
         dataoutputstream.write(packet.b());
         packet.a(dataoutputstream);
     }
 
-    public static void a(String s, DataOutputStream dataoutputstream) {
+    public static void a(String s, DataOutputStream dataoutputstream) throws IOException {
         if (s.length() > 32767) {
             throw new IOException("String too big");
         } else {
@@ -113,7 +115,7 @@ public abstract class Packet {
         }
     }
 
-    public static String a(DataInputStream datainputstream, int i) {
+    public static String a(DataInputStream datainputstream, int i) throws IOException {
         short short1 = datainputstream.readShort();
 
         if (short1 > i) {
@@ -131,9 +133,9 @@ public abstract class Packet {
         }
     }
 
-    public abstract void a(DataInputStream datainputstream);
+    public abstract void a(DataInputStream datainputstream) throws IOException;
 
-    public abstract void a(DataOutputStream dataoutputstream);
+    public abstract void a(DataOutputStream dataoutputstream) throws IOException;
 
     public abstract void a(NetHandler nethandler);
 

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class NextTickListEntry implements Comparable {
+public class NextTickListEntry implements Comparable<NextTickListEntry> {
 
     private static long f = 0L;
     public int a;

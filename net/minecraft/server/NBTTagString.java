@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInput;
 import java.io.DataOutput;
+import java.io.IOException;
 
 public class NBTTagString extends NBTBase {
 
@@ -16,11 +17,11 @@ public class NBTTagString extends NBTBase {
         }
     }
 
-    void a(DataOutput dataoutput) {
+    void a(DataOutput dataoutput) throws IOException {
         dataoutput.writeUTF(this.a);
     }
 
-    void a(DataInput datainput) {
+    void a(DataInput datainput) throws IOException {
         this.a = datainput.readUTF();
     }
 

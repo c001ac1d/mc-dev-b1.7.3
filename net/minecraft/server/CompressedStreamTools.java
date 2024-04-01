@@ -14,7 +14,7 @@ public class CompressedStreamTools {
 
     public CompressedStreamTools() {}
 
-    public static NBTTagCompound a(InputStream inputstream) {
+    public static NBTTagCompound a(InputStream inputstream) throws IOException {
         DataInputStream datainputstream = new DataInputStream(new GZIPInputStream(inputstream));
 
         NBTTagCompound nbttagcompound;
@@ -28,7 +28,7 @@ public class CompressedStreamTools {
         return nbttagcompound;
     }
 
-    public static void a(NBTTagCompound nbttagcompound, OutputStream outputstream) {
+    public static void a(NBTTagCompound nbttagcompound, OutputStream outputstream) throws IOException {
         DataOutputStream dataoutputstream = new DataOutputStream(new GZIPOutputStream(outputstream));
 
         try {
@@ -38,7 +38,7 @@ public class CompressedStreamTools {
         }
     }
 
-    public static NBTTagCompound a(DataInput datainput) {
+    public static NBTTagCompound a(DataInput datainput) throws IOException {
         NBTBase nbtbase = NBTBase.b(datainput);
 
         if (nbtbase instanceof NBTTagCompound) {
@@ -48,7 +48,7 @@ public class CompressedStreamTools {
         }
     }
 
-    public static void a(NBTTagCompound nbttagcompound, DataOutput dataoutput) {
+    public static void a(NBTTagCompound nbttagcompound, DataOutput dataoutput) throws IOException {
         NBTBase.a(nbttagcompound, dataoutput);
     }
 }

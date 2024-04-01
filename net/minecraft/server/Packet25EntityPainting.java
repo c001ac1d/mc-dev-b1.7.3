@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet25EntityPainting extends Packet {
 
@@ -23,7 +24,7 @@ public class Packet25EntityPainting extends Packet {
         this.f = entitypainting.e.A;
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException {
         this.a = datainputstream.readInt();
         this.f = a(datainputstream, EnumArt.z);
         this.b = datainputstream.readInt();
@@ -32,7 +33,7 @@ public class Packet25EntityPainting extends Packet {
         this.e = datainputstream.readInt();
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException {
         dataoutputstream.writeInt(this.a);
         a(this.f, dataoutputstream);
         dataoutputstream.writeInt(this.b);

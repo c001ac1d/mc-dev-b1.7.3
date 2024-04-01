@@ -245,7 +245,7 @@ public class RegionFile {
         }
     }
 
-    private void a(int i, byte[] abyte, int j) {
+    private void a(int i, byte[] abyte, int j) throws IOException {
         this.b(" " + i);
         this.c.seek((long) (i * 4096));
         this.c.writeInt(j + 1);
@@ -265,19 +265,19 @@ public class RegionFile {
         return this.e(i, j) != 0;
     }
 
-    private void a(int i, int j, int k) {
+    private void a(int i, int j, int k) throws IOException {
         this.d[i + j * 32] = k;
         this.c.seek((long) ((i + j * 32) * 4));
         this.c.writeInt(k);
     }
 
-    private void b(int i, int j, int k) {
+    private void b(int i, int j, int k) throws IOException {
         this.e[i + j * 32] = k;
         this.c.seek((long) (4096 + (i + j * 32) * 4));
         this.c.writeInt(k);
     }
 
-    public void b() {
+    public void b() throws IOException {
         this.c.close();
     }
 }

@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet106Transaction extends Packet {
 
@@ -21,13 +22,13 @@ public class Packet106Transaction extends Packet {
         nethandler.a(this);
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException {
         this.a = datainputstream.readByte();
         this.b = datainputstream.readShort();
         this.c = datainputstream.readByte() != 0;
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException {
         dataoutputstream.writeByte(this.a);
         dataoutputstream.writeShort(this.b);
         dataoutputstream.writeByte(this.c ? 1 : 0);

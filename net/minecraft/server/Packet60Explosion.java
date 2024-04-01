@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -24,7 +25,7 @@ public class Packet60Explosion extends Packet {
         this.e = new HashSet(set);
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException {
         this.a = datainputstream.readDouble();
         this.b = datainputstream.readDouble();
         this.c = datainputstream.readDouble();
@@ -45,7 +46,7 @@ public class Packet60Explosion extends Packet {
         }
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException {
         dataoutputstream.writeDouble(this.a);
         dataoutputstream.writeDouble(this.b);
         dataoutputstream.writeDouble(this.c);

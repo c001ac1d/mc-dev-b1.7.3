@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet31RelEntityMove extends Packet30Entity {
 
@@ -14,14 +15,14 @@ public class Packet31RelEntityMove extends Packet30Entity {
         this.d = b2;
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException {
         super.a(datainputstream);
         this.b = datainputstream.readByte();
         this.c = datainputstream.readByte();
         this.d = datainputstream.readByte();
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException {
         super.a(dataoutputstream);
         dataoutputstream.writeByte(this.b);
         dataoutputstream.writeByte(this.c);

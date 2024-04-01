@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet3Chat extends Packet {
 
@@ -17,11 +18,11 @@ public class Packet3Chat extends Packet {
         this.message = s;
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException {
         this.message = a(datainputstream, 119);
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException {
         a(this.message, dataoutputstream);
     }
 

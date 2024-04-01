@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet6SpawnPosition extends Packet {
 
@@ -17,13 +18,13 @@ public class Packet6SpawnPosition extends Packet {
         this.z = k;
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException {
         this.x = datainputstream.readInt();
         this.y = datainputstream.readInt();
         this.z = datainputstream.readInt();
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException {
         dataoutputstream.writeInt(this.x);
         dataoutputstream.writeInt(this.y);
         dataoutputstream.writeInt(this.z);

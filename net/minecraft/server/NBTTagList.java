@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInput;
 import java.io.DataOutput;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class NBTTagList extends NBTBase {
 
     public NBTTagList() {}
 
-    void a(DataOutput dataoutput) {
+    void a(DataOutput dataoutput) throws IOException {
         if (this.a.size() > 0) {
             this.b = ((NBTBase) this.a.get(0)).a();
         } else {
@@ -27,7 +28,7 @@ public class NBTTagList extends NBTBase {
         }
     }
 
-    void a(DataInput datainput) {
+    void a(DataInput datainput) throws IOException {
         this.b = datainput.readByte();
         int i = datainput.readInt();
 

@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet28EntityVelocity extends Packet {
 
@@ -49,14 +50,14 @@ public class Packet28EntityVelocity extends Packet {
         this.d = (int) (d2 * 8000.0D);
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException {
         this.a = datainputstream.readInt();
         this.b = datainputstream.readShort();
         this.c = datainputstream.readShort();
         this.d = datainputstream.readShort();
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException {
         dataoutputstream.writeInt(this.a);
         dataoutputstream.writeShort(this.b);
         dataoutputstream.writeShort(this.c);

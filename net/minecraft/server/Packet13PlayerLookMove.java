@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet13PlayerLookMove extends Packet10Flying {
 
@@ -22,7 +23,7 @@ public class Packet13PlayerLookMove extends Packet10Flying {
         this.h = true;
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException {
         this.x = datainputstream.readDouble();
         this.y = datainputstream.readDouble();
         this.stance = datainputstream.readDouble();
@@ -32,7 +33,7 @@ public class Packet13PlayerLookMove extends Packet10Flying {
         super.a(datainputstream);
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException {
         dataoutputstream.writeDouble(this.x);
         dataoutputstream.writeDouble(this.y);
         dataoutputstream.writeDouble(this.stance);

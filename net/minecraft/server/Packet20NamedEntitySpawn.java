@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet20NamedEntitySpawn extends Packet {
 
@@ -29,7 +30,7 @@ public class Packet20NamedEntitySpawn extends Packet {
         this.h = itemstack == null ? 0 : itemstack.id;
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException {
         this.a = datainputstream.readInt();
         this.b = a(datainputstream, 16);
         this.c = datainputstream.readInt();
@@ -40,7 +41,7 @@ public class Packet20NamedEntitySpawn extends Packet {
         this.h = datainputstream.readShort();
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException {
         dataoutputstream.writeInt(this.a);
         a(this.b, dataoutputstream);
         dataoutputstream.writeInt(this.c);

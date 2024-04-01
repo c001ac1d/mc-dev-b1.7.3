@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInput;
 import java.io.DataOutput;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -13,7 +14,7 @@ public class NBTTagCompound extends NBTBase {
 
     public NBTTagCompound() {}
 
-    void a(DataOutput dataoutput) {
+    void a(DataOutput dataoutput) throws IOException {
         Iterator iterator = this.a.values().iterator();
 
         while (iterator.hasNext()) {
@@ -25,7 +26,7 @@ public class NBTTagCompound extends NBTBase {
         dataoutput.writeByte(0);
     }
 
-    void a(DataInput datainput) {
+    void a(DataInput datainput) throws IOException {
         this.a.clear();
 
         NBTBase nbtbase;

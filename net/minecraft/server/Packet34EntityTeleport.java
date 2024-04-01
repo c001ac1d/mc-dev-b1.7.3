@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet34EntityTeleport extends Packet {
 
@@ -32,7 +33,7 @@ public class Packet34EntityTeleport extends Packet {
         this.f = b1;
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException {
         this.a = datainputstream.readInt();
         this.b = datainputstream.readInt();
         this.c = datainputstream.readInt();
@@ -41,7 +42,7 @@ public class Packet34EntityTeleport extends Packet {
         this.f = (byte) datainputstream.read();
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException {
         dataoutputstream.writeInt(this.a);
         dataoutputstream.writeInt(this.b);
         dataoutputstream.writeInt(this.c);

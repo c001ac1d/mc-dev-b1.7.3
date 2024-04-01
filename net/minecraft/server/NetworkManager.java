@@ -3,6 +3,7 @@ package net.minecraft.server;
 import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketAddress;
 import java.net.SocketException;
@@ -38,7 +39,7 @@ public class NetworkManager {
     public int f = 0;
     private int lowPriorityQueueDelay = 50;
 
-    public NetworkManager(Socket socket, String s, NetHandler nethandler) {
+    public NetworkManager(Socket socket, String s, NetHandler nethandler) throws IOException {
         this.socket = socket;
         this.i = socket.getRemoteSocketAddress();
         this.p = nethandler;

@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 
 public class Packet105CraftProgressBar extends Packet {
 
@@ -21,13 +22,13 @@ public class Packet105CraftProgressBar extends Packet {
         nethandler.a(this);
     }
 
-    public void a(DataInputStream datainputstream) {
+    public void a(DataInputStream datainputstream) throws IOException {
         this.a = datainputstream.readByte();
         this.b = datainputstream.readShort();
         this.c = datainputstream.readShort();
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException {
         dataoutputstream.writeByte(this.a);
         dataoutputstream.writeShort(this.b);
         dataoutputstream.writeShort(this.c);

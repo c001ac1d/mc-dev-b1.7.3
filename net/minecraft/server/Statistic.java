@@ -25,7 +25,7 @@ public class Statistic {
     }
 
     public Statistic(int i, String s) {
-        this(i, s, i);
+        this(i, s, Statistic.i);
     }
 
     public Statistic e() {

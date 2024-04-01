@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -58,7 +59,7 @@ public class DataWatcher {
         return this.c;
     }
 
-    public static void a(List list, DataOutputStream dataoutputstream) {
+    public static void a(List list, DataOutputStream dataoutputstream) throws IOException {
         if (list != null) {
             Iterator iterator = list.iterator();
 
@@ -96,7 +97,7 @@ public class DataWatcher {
         return arraylist;
     }
 
-    public void a(DataOutputStream dataoutputstream) {
+    public void a(DataOutputStream dataoutputstream) throws IOException {
         Iterator iterator = this.b.values().iterator();
 
         while (iterator.hasNext()) {
@@ -108,7 +109,7 @@ public class DataWatcher {
         dataoutputstream.writeByte(127);
     }
 
-    private static void a(DataOutputStream dataoutputstream, WatchableObject watchableobject) {
+    private static void a(DataOutputStream dataoutputstream, WatchableObject watchableobject) throws IOException {
         int i = (watchableobject.c() << 5 | watchableobject.a() & 31) & 255;
 
         dataoutputstream.writeByte(i);
@@ -150,7 +151,7 @@ public class DataWatcher {
         }
     }
 
-    public static List a(DataInputStream datainputstream) {
+    public static List a(DataInputStream datainputstream) throws IOException {
         ArrayList arraylist = null;
 
         for (byte b0 = datainputstream.readByte(); b0 != 127; b0 = datainputstream.readByte()) {

@@ -1,2 +1,13 @@
 .idea
 *.iml
+banned-ips.txt
+banned-players.txt
+ops.txt
+server.properties
+server.log
+server.log.lck
+white-list.txt
+out/*
+out
+world
+world/*
